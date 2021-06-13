@@ -7,7 +7,7 @@ import './index.css';
 
 function Calculadora(){
 
-
+  const[count,setCount]=useState(0);
   const[resultado,setResultado]=useState(0);
   const[num1,setNum1]=useState('');
   const[num2,setNum2]=useState('');
@@ -20,18 +20,22 @@ function Calculadora(){
      switch (operation){
        case "+":
              setResultado(num1+num2);
+             setCount(count+1);
              setMostrar(1);
              break;
       case "-":
              setResultado(num1-num2);
+             setCount(count+1);
               setMostrar(1);
              break;
       case "*":
             setResultado(num1*num2);
+             setCount(count+1);
              setMostrar(1);
             break;
       case "/":
            setResultado(num1/num2);
+            setCount(count+1);
             setMostrar(1);
            break;
      }
@@ -47,11 +51,14 @@ function Calculadora(){
   };
 
     return(
+
       <div className="card">
        <section className="card-text">
+           <div data-testid="total-operations">Total operations performed: {count}</div>
          <div className="layout-row justify-content-around align-items-center mt-40">
 
                 <input
+                        data-testid='app-input1'
                         id="num1"
                         type="number"
                         value={num1}
@@ -59,9 +66,10 @@ function Calculadora(){
                         placeholder="EG:1"
                 />
 
-                      <label for="operacion">{operacion}</label>
+                      <label data-testid='sected-operator' for="operacion">{operacion}</label>
 
                    <input
+                   data-testid='app-input2'
                    id="num2"
                    type="number"
                   onChange={(e)=>setNum2(e.target.value)}
@@ -71,19 +79,18 @@ function Calculadora(){
                   <br/>
 
                      <div className="layout-row justify-content-around mt-30">
-                      <button  className="operationFont" id="resta" type="submit"   data-testid="subtractButton" onClick={()=>action('-')} >-</button>
-                      <button id="suma" type="submit" onClick={()=>action('+')} >+</button>
+                      <button data-testid='subtractButton' className="operationFont" id="resta" type="submit"   data-testid="subtractButton" onClick={()=>action('-')} >-</button>
+                      <button data-testid='addButton' id="suma" type="submit" onClick={()=>action('+')} >+</button>
 
-                      <button id="multiplicasion" type="submit" onClick={()=>action('*')} >*</button>
-                      <button id="deivision" type="submit" onClick={()=>action('/')} >/</button><br/>
+                      <button data-testid='multiplyButton' id="multiplicasion" type="submit" onClick={()=>action('*')} >*</button>
+                      <button data-testid='divideButton' id="deivision" type="submit" onClick={()=>action('/')} >/</button><br/>
                       </div>
-                        <button id="reset" type="submit" onClick={reset} >RESET</button><br/>
+                        <button data-testid='reset' id="reset" type="submit" onClick={reset} >RESET</button><br/>
                         <div className="layout-row justify-content-center align-items-center result-container">
-                        {(mostrar==1)&&  <div
-                           data-testid="resultado"
-                           className="result-value ma-0 slide-up-fade-in"
-                         >Result: {resultado}</div>}
+                        {(mostrar==1)&&   <div data-testid="result">Result: {resultado}</div>}
                        </div>
+
+
 
            </div>
           </section>
