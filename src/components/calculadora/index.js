@@ -16,10 +16,14 @@ function Calculadora(){
 
 
  const action=(operation)=>{
-     setOperacion(operation);
+
+     const n1=parseInt(num1);
+     const n2=parseInt(num2);
+    setOperacion(operation);
      switch (operation){
        case "+":
-             setResultado(num1+num2);
+
+             setResultado(n1+n2);
              setCount(count+1);
              setMostrar(1);
              break;
