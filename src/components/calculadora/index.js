@@ -66,7 +66,7 @@ function Calculadora(){
                         placeholder="EG:1"
                 />
 
-                      <label data-testid='sected-operator' for="operacion">{operacion}</label>
+                      <label data-testid='selected-operator' for="operacion">{operacion}</label>
 
                    <input
                    data-testid='app-input2'
@@ -85,7 +85,7 @@ function Calculadora(){
                       <button data-testid='multiplyButton' id="multiplicasion" type="submit" onClick={()=>action('*')} >*</button>
                       <button data-testid='divideButton' id="deivision" type="submit" onClick={()=>action('/')} >/</button><br/>
                       </div>
-                        <button data-testid='reset' id="reset" type="submit" onClick={reset} >RESET</button><br/>
+                        <button data-testid='resetButton' id="reset" type="submit" onClick={reset} >RESET</button><br/>
                         <div className="layout-row justify-content-center align-items-center result-container">
                         {(mostrar==1)&&   <div data-testid="result">Result: {resultado}</div>}
                        </div>
