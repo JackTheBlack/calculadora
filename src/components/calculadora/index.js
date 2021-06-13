@@ -89,7 +89,7 @@ function Calculadora(){
                       <button data-testid='multiplyButton' id="multiplicasion" type="submit" onClick={()=>action('*')} >*</button>
                       <button data-testid='divideButton' id="deivision" type="submit" onClick={()=>action('/')} >/</button><br/>
                       </div>
-                        <button data-testid='resetButton' id="reset" type="submit" onClick={reset} >RESET</button><br/>
+                        <button data-testid='resetButton' id="reset" type="submit" onClick={reset} >Reset</button><br/>
                         <div className="layout-row justify-content-center align-items-center result-container">
                         {(mostrar==1)&&   <div data-testid="result">Result: {resultado}</div>}
                        </div>
