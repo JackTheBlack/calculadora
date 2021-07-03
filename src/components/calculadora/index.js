@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import "antd/dist/antd.css";
 import "./index.css";
+import { Button } from "antd";
 
 function Calculadora() {
   const [count, setCount] = useState(0);
@@ -76,46 +78,51 @@ function Calculadora() {
           <br />
 
           <div className="layout-row justify-content-around mt-30">
-            <button
-              data-testid="subtractButton"
-              className="operationFont"
-              id="resta"
-              type="submit"
-              data-testid="subtractButton"
-              onClick={() => action("-")}
-            >
-              -
-            </button>
-            <button
+            <Button
               data-testid="addButton"
               id="suma"
-              type="submit"
+              type="primary"
               onClick={() => action("+")}
             >
               +
-            </button>
-
-            <button
+            </Button>
+            <a> </a>
+            <Button
+              data-testid="subtractButton"
+              className="operationFont"
+              id="resta"
+              type="danger"
+              onClick={() => action("-")}
+            >
+              -
+            </Button>
+            <a> </a>
+            <Button
+              border="1px"
               data-testid="multiplyButton"
               id="multiplicasion"
-              type="submit"
+              type="primary"
               onClick={() => action("*")}
             >
               *
-            </button>
-            <button
+            </Button>
+            <a> </a>
+            <Button
               data-testid="divideButton"
               id="deivision"
-              type="submit"
+              type="danger"
               onClick={() => action("/")}
             >
               /
-            </button>
+            </Button>
+
             <br />
           </div>
           <button
+            class="button"
             data-testid="resetButton"
             id="reset"
+            size="large"
             type="submit"
             onClick={reset}
           >
@@ -123,7 +130,7 @@ function Calculadora() {
           </button>
           <br />
           <div className="layout-row justify-content-center align-items-center result-container">
-            {mostrar == 1 && (
+            {mostrar === 1 && (
               <div data-testid="result">Result: {resultado}</div>
             )}
           </div>
